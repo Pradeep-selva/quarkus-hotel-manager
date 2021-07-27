@@ -1,4 +1,4 @@
-package com.pradeepselva.quarkus.crud.resources;
+package com.pradeepselva.hotelmanagement.resources;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

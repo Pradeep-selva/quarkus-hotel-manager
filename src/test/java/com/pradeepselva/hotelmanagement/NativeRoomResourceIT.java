@@ -1,4 +1,4 @@
-package com.pradeepselva.quarkus.crud;
+package com.pradeepselva.hotelmanagement;
 
 import io.quarkus.test.junit.NativeImageTest;
 

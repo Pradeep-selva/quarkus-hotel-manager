@@ -1,6 +1,6 @@
-package com.pradeepselva.quarkus.crud.services;
+package com.pradeepselva.hotelmanagement.services;
 
-import com.pradeepselva.quarkus.crud.entity.Room;
+import com.pradeepselva.hotelmanagement.entity.Room;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.transaction.Transactional;

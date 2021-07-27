@@ -1,7 +1,7 @@
-package com.pradeepselva.quarkus.crud.resources;
+package com.pradeepselva.hotelmanagement.resources;
 
-import com.pradeepselva.quarkus.crud.entity.Room;
-import com.pradeepselva.quarkus.crud.services.RoomService;
+import com.pradeepselva.hotelmanagement.entity.Room;
+import com.pradeepselva.hotelmanagement.services.RoomService;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
