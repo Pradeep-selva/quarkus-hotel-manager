@@ -16,8 +16,14 @@ public class RoomResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response listAllRooms() {
-        Iterable<Room> rooms = roomService.getRooms();
-        return Response.ok(rooms).build();
+        return roomService.getRooms();
+    }
+
+    @GET
+    @Path("/{number}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getRoomByNumber(@PathParam("number") String number) {
+        return roomService.getRoomByNumber(number);
     }
 
     @POST
@@ -25,5 +31,12 @@ public class RoomResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response createNewRoom(Room room) {
         return roomService.newRoom(room);
+    }
+
+    @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response updateRoom(Room room) {
+        return roomService.updateRoom(room);
     }
 }
