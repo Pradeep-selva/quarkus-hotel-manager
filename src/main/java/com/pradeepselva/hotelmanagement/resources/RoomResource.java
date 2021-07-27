@@ -39,4 +39,11 @@ public class RoomResource {
     public Response updateRoom(Room room) {
         return roomService.updateRoom(room);
     }
+
+    @DELETE
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response deleteRoom(@PathParam("id") Long id) throws IllegalAccessException {
+        return roomService.deleteRoom(id);
+    }
 }

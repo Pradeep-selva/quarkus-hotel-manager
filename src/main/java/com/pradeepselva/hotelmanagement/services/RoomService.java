@@ -62,4 +62,20 @@ public class RoomService {
            return Response.status(Response.Status.NOT_FOUND).build();
        }
     }
+
+    @Transactional
+    public Response deleteRoom(Long roomId) throws IllegalAccessException {
+        long roomCount = Room.count("room_id", roomId);
+
+        if(roomCount > 0) {
+            try {
+                Room.delete("room_id", roomId);
+                return Response.ok().build();
+            } catch (Exception e) {
+                throw new IllegalAccessException();
+            }
+        } else {
+            return Response.status(Response.Status.BAD_REQUEST).build();
+        }
+    }
 }
