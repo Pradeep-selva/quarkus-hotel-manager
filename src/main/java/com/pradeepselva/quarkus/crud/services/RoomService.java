@@ -3,7 +3,6 @@ package com.pradeepselva.quarkus.crud.services;
 import com.pradeepselva.quarkus.crud.entity.Room;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.core.Response;
 import java.net.URI;
