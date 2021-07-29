@@ -43,7 +43,7 @@ public class RoomResource {
     @DELETE
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response deleteRoom(@PathParam("id") Long id) throws IllegalAccessException {
+    public Response deleteRoom(@PathParam("id") Long id) throws IllegalStateException {
         return roomService.deleteRoom(id);
     }
 }

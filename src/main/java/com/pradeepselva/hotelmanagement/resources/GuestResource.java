@@ -48,4 +48,11 @@ public class GuestResource {
     public Response updateGuest(Guest guest) {
         return guestService.updateGuest(guest);
     }
+
+    @DELETE
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response deleteGuest(@PathParam("id") Long id) {
+        return guestService.deleteGuest(id);
+    }
 }

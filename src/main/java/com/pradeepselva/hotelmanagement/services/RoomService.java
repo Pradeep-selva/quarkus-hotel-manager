@@ -64,7 +64,7 @@ public class RoomService {
     }
 
     @Transactional
-    public Response deleteRoom(Long roomId) throws IllegalAccessException {
+    public Response deleteRoom(Long roomId) throws IllegalStateException {
         long roomCount = Room.count("room_id", roomId);
 
         if(roomCount > 0) {
