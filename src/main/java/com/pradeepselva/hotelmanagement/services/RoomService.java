@@ -56,7 +56,7 @@ public class RoomService {
 
                return Response.ok(room).build();
            } catch (Exception e) {
-               throw new IllegalStateException();
+               throw new IllegalStateException(e);
            }
        } else {
            return Response.status(Response.Status.NOT_FOUND).build();
@@ -72,7 +72,7 @@ public class RoomService {
                 Room.delete("room_id", roomId);
                 return Response.ok().build();
             } catch (Exception e) {
-                throw new IllegalAccessException();
+                throw new IllegalStateException(e);
             }
         } else {
             return Response.status(Response.Status.BAD_REQUEST).build();
