@@ -38,13 +38,17 @@ public class GuestService {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
 
-        Guest.persist(guest);
+        try {
+            Guest.persist(guest);
 
-        if(guest.isPersistent()) {
-            return Response.created(URI.create("/guest"+guest.getGuestId())).build();
+            if(guest.isPersistent()) {
+                return Response.created(URI.create("/guest"+guest.getGuestId())).build();
+            }
+
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+        } catch (Exception e) {
+            throw new IllegalStateException(e);
         }
-
-        return Response.status(Response.Status.BAD_REQUEST).build();
     }
 
     @Transactional
@@ -79,7 +83,7 @@ public class GuestService {
 
         try {
             Guest.delete("guest_id", id);
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+            return Response.ok("deleted "+id).build();
         } catch (Exception e) {
             throw new IllegalStateException(e);
         }
