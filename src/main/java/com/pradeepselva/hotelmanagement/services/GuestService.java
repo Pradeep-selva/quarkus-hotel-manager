@@ -18,11 +18,10 @@ public class GuestService {
     }
 
     public Response getGuestByEmailOrPhone(String email, String phoneNo) {
-       PanacheQuery<Guest> guests = Guest.find("email = ?1 or phone_number = ?2", email, phoneNo);
-       List<Guest> _guests = guests.stream().collect(Collectors.toList());
-       System.out.println(_guests);
+       PanacheQuery<Guest> query = Guest.find("email = ?1 or phone_number = ?2", email, phoneNo);
+       List<Guest> guests = query.stream().collect(Collectors.toList());
 
-        return Response.ok(_guests).build();
+        return Response.ok(guests).build();
     }
 
     public Response getGuestById(Long id) {
