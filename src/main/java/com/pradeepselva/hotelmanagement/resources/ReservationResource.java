@@ -40,4 +40,11 @@ public class ReservationResource {
     public Response createReservation(Reservation reservation) {
         return reservationService.newReservation(reservation);
     }
+
+    @DELETE
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response deleteReservation(@PathParam("id") Long id) {
+        return reservationService.deleteReservation(id);
+    }
 }

@@ -80,4 +80,20 @@ public class ReservationService {
 
         return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
     }
+
+    @Transactional
+    public Response deleteReservation(Long reservationId) throws IllegalStateException {
+        long reservationCount = Reservation.count("reservation_id", reservationId);
+
+        if(reservationCount > 0) {
+            try {
+                Reservation.delete("reservation_id", reservationId);
+                return Response.ok().build();
+            } catch (Exception e) {
+                throw new IllegalStateException(e);
+            }
+        } else {
+            return Response.status(Response.Status.BAD_REQUEST).build();
+        }
+    }
 }
