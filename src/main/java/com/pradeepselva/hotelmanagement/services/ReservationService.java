@@ -72,6 +72,12 @@ public class ReservationService {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
 
+        long dateClashCount = Reservation.count("res_date", reservation.getResDate());
+
+        if(dateClashCount > 0) {
+            return Response.status(Response.Status.BAD_REQUEST).build();
+        }
+
         Reservation.persist(reservation);
 
         if(reservation.isPersistent()) {
